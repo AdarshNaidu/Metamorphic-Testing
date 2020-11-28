@@ -7,6 +7,15 @@ const axios = require('axios');
 const mock = new MockAdapter(axios);
 const hostname = 'youtube.com';
 
+const {
+  checkEquivalence,
+  checkEquality,
+  checkSubset,
+  checkDisjoint,
+  checkComplete,
+  checkDifference,
+} = require('../helpers');
+
 describe('YouTube API', async () => {
   it('Equivalence Relation', async () => {
     const result1 = [{ id: 1, name: 'video1' }, { id: 2, name: 'video2' }];
@@ -91,34 +100,3 @@ describe('YouTube API', async () => {
     assert.equal(result, true);
   });
 });
-
-const checkEquivalence = (a, b) => {
-  if (a.length !== b.length) return false;
-
-  return true;
-};
-
-const checkEquality = (a, b) => {
-  if (a.length !== b.length) return false;
-
-  if (a[0].id !== b[0].id) return false;
-
-  return true;
-};
-
-const checkSubset = (a, b) => {
-  if (b.length > a.length) return false;
-  return true;
-};
-
-const checkDisjoint = (a, b) => {
-  if (a[0].id === b[0].id) return false;
-  return true;
-};
-
-const checkComplete = (a, b, c) => {
-  if (c.length === a.length + b.length) return true;
-  return false;
-};
-
-const checkDifference = (a, b) => (JSON.stringify(a) !== JSON.stringify(b));
