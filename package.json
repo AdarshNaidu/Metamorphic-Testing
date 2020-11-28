@@ -6,7 +6,8 @@
   "author": "Adarsh, Harsh, Karthik",
   "scripts": {
     "mocha": "node ./node_modules/mocha/bin/mocha",
-    "test": "mocha --opts ./mocha.opts"
+    "test": "mocha --opts ./mocha.opts",
+    "check": "mocha ./test/youtube.js"
   },
   "dependencies": {
     "assert": "^2.0.0",

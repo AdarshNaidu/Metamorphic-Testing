@@ -1,0 +1,13 @@
+name: Run Check
+
+on: [push, pull_request]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: install dependencies
+        run: npm install
+      - name: test API
+        run: npm run check
