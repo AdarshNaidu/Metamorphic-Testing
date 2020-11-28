@@ -40,7 +40,7 @@ describe('YouTube API', async () => {
     const response2 = await axios.get(`${hostname}/api/videos`).then((res) => res.data);
 
     const result = checkEquality(response1, response2);
-    assert.equal(result, true);
+    assert.equal(result, false);
   });
   it('Subset Relation', async () => {
     const result1 = [{ id: 1, name: 'video1' }, { id: 2, name: 'video2' }];
